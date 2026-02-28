@@ -1,28 +1,31 @@
-# Sistema de Gestão Escolar
+# 📚 Sistema de Gestão Escolar 
 
-Este projeto é um sistema simples de gestão escolar desenvolvido em **Python**, com interface gráfica em **Tkinter** e persistência de dados em **Excel**.  
-O objetivo é cadastrar alunos, calcular médias das notas e determinar automaticamente a situação acadêmica (Aprovado, Recuperação ou Reprovado).
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python) ![Tkinter](https://img.shields.io/badge/Tkinter-GUI-green) ![Excel](https://img.shields.io/badge/Excel-openpyxl-yellow?logo=microsoft-excel) ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-orange) 
+
+Um sistema simples de **gestão escolar** desenvolvido em Python, com interface gráfica em Tkinter e persistência de dados em Excel. Permite cadastrar alunos, calcular médias e determinar automaticamente a situação acadêmica. 
 
 ---
 
-## 🚀 Funcionalidades
-- Cadastro de alunos com nome e duas notas.
-- Cálculo automático da média aritmética.
-- Determinação da situação acadêmica:
-  - Média >= 7 → **Aprovado**
-  - Média >= 5 → **Recuperação**
-  - Média < 5 → **Reprovado**
-- Exibição dos dados em uma tabela (`Treeview`) com barra de rolagem.
-- Persistência dos dados em planilhas Excel (arquivo `.xlsx`).
+## ✨ Funcionalidades 
+
+- Cadastro de alunos com nome e duas notas. 
+- Cálculo automático da média aritmética. 
+- Determinação da situação acadêmica: 
+- ✅ Média >= 7 → **Aprovado** 
+- ⚠️ Média >= 5 → **Recuperação** 
+- ❌ Média < 5 → **Reprovado** 
+- Exibição dos dados em tabela (`Treeview`) com barra de rolagem. 
+- Persistência dos dados em planilhas Excel (`openpyxl`). 
 
 ---
 
 ## 🛠️ Tecnologias e Bibliotecas
-- **Python 3.12**
-- **Tkinter** → para a interface gráfica.
-- **ttk (Treeview, Scrollbar)** → para tabelas e rolagem.
-- **openpyxl** → para salvar e manipular dados em Excel.
-- **venv** → ambiente virtual para gerenciar dependências.
+
+- **Python 3.x** 
+- **Tkinter** (interface gráfica) 
+- **ttk** (Treeview, Scrollbar) 
+- **openpyxl** (Excel) 
+- **venv** (ambiente virtual) 
 
 ---
 
