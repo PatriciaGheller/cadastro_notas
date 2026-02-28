@@ -71,6 +71,10 @@ ou
 
 python listaMediaAlunoFinal.py
 
+ou
+
+python rad_interface.py
+
 ## 📖 Evolução das Interfaces Gráficas
 
 - design_tela.py  
