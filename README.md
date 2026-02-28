@@ -4,6 +4,8 @@
 
 Um sistema simples de **gestão escolar** desenvolvido em Python, com interface gráfica em Tkinter e persistência de dados em Excel. Permite cadastrar alunos, calcular médias e determinar automaticamente a situação acadêmica. 
 
+Este projeto conta com uma **interface RAD (Rapid Application Development)** contruída em **Tkinter**, seguindo princípios de **orientação a objetos**.
+
 ---
 
 ## ✨ Funcionalidades 
@@ -15,7 +17,8 @@ Um sistema simples de **gestão escolar** desenvolvido em Python, com interface 
 - ⚠️ Média >= 5 → **Recuperação** 
 - ❌ Média < 5 → **Reprovado** 
 - Exibição dos dados em tabela (`Treeview`) com barra de rolagem. 
-- Persistência dos dados em planilhas Excel (`openpyxl`). 
+- Persistência dos dados em planilhas Excel (`openpyxl`).
+- Estrutura orientada a objetos para maior organização e manutenção do código. 
 
 ---
 
@@ -34,9 +37,11 @@ cadastro_notas/
 │
 ├── design_tela.py          # Primeira versão da interface gráfica
 ├── listaMediaAlunoFinal.py # Versão evoluída com persistência em Excel
+├── planilhaAlunos.xlxs     # Persistência dos dados
+├── rad_interface.py        # Interface gráfica e lógica principal
+├── README.md               # Documentação atualizada
 ├── requirements.txt        # Dependências do projeto
 └── venv/                   # Ambiente virtual (não versionado)
-
 
 ---
 
