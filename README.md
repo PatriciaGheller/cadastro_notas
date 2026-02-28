@@ -24,11 +24,12 @@ Este projeto conta com uma **interface RAD (Rapid Application Development)** con
 
 ## 🛠️ Tecnologias e Bibliotecas
 
-- **Python 3.x** 
-- **Tkinter** (interface gráfica) 
-- **ttk** (Treeview, Scrollbar) 
-- **openpyxl** (Excel) 
-- **venv** (ambiente virtual) 
+- **Python 3.11** - linguagem principal
+- **Tkinter** (construção da interface gráfica) 
+- **ttk** - componentes avançados (Treeview, Scrollbar)
+- **pandas** - manipulação e análise de dados 
+- **openpyxl** leitura e escrita de planilhas Excel (.xlsx) 
+- **venv** - gerenciamento de ambiente virtual 
 
 ---
 
