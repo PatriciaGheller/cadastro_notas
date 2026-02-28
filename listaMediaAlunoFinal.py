@@ -1,6 +1,15 @@
 import tkinter as tk
 from tkinter import ttk
 import pandas as pd
+import os
+
+# Colunas padronizadas
+colunas = ["Aluno", "Nota 1", "Nota 2", "Média", "Situação"]
+
+# Garantir que a planilha exista com todas as colunas
+if not os.path.exists("planilhaAlunos.xlsx"):
+    df = pd.DataFrame(columns=colunas)
+    df.to_excel("planilhaAlunos.xlsx", index=False, engine="openpyxl")
 
 # Janela principal
 janela = tk.Tk()
@@ -17,7 +26,7 @@ txtNome = tk.Entry(janela, bd=3)
 txtNota1 = tk.Entry(janela)
 txtNota2 = tk.Entry(janela)
 
-# Posicionamento dos campos
+# Posicionamento
 lblNome.pack()
 txtNome.pack()
 lblNota1.pack()
@@ -25,14 +34,11 @@ txtNota1.pack()
 lblNota2.pack()
 txtNota2.pack()
 
-# Colunas da tabela
-colunas = ("Aluno", "Nota1", "Nota2", "Média", "Situação")
+# Tabela
 treeMedias = ttk.Treeview(janela, columns=colunas, show="headings")
-
 for coluna in colunas:
     treeMedias.heading(coluna, text=coluna)
     treeMedias.column(coluna, width=100)
-
 treeMedias.pack(padx=10, pady=10, fill="both", expand=True)
 
 # Scrollbar
@@ -65,7 +71,7 @@ def cadastrar_aluno():
     except ValueError:
         print("Erro: Digite valores numéricos válidos.")
 
-# Função para salvar dados em Excel
+# Função para salvar dados
 def salvar_dados():
     dados = []
     for line in treeMedias.get_children():
@@ -76,21 +82,24 @@ def salvar_dados():
     df.to_excel("planilhaAlunos.xlsx", index=False, engine="openpyxl")
     print("Dados salvos com sucesso.")
 
-# Função para carregar dados iniciais do Excel
+# Função para carregar dados iniciais
 def carregar_dados_iniciais():
     try:
-        df = pd.read_excel("planilhaAlunos.xlsx")
+        df = pd.read_excel("planilhaAlunos.xlsx", engine="openpyxl")
+
+        # Corrigir colunas faltantes
+        if "Média" not in df.columns or "Situação" not in df.columns:
+            df["Média"] = (df["Nota 1"] + df["Nota 2"]) / 2
+            df["Situação"] = df["Média"].apply(
+                lambda m: "Aprovado" if m >= 7 else "Em Recuperação" if m >= 5 else "Reprovado"
+            )
+            df.to_excel("planilhaAlunos.xlsx", index=False, engine="openpyxl")
+
         for _, row in df.iterrows():
-            treeMedias.insert("", "end", values=(row["Aluno"], row["Nota1"], row["Nota2"], row["Média"], row["Situação"]))
+            treeMedias.insert("", "end", values=(row["Aluno"], row["Nota 1"], row["Nota 2"], row["Média"], row["Situação"]))
     except FileNotFoundError:
         print("Nenhum dado encontrado.")
 
 # Botão de cadastro
 btnCadastrar = tk.Button(janela, text="Cadastrar", command=cadastrar_aluno)
-btnCadastrar.pack()
-
-# Carregar dados existentes
-carregar_dados_iniciais()
-
-# Loop principal
-janela.mainloop()
+btnCadastrar.pack
